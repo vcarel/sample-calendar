@@ -3,11 +3,11 @@ import { range } from "es-toolkit";
 import { useState } from "react";
 import {
 	formatDayShortMonth,
-	formatHourMinute,
 	formatShortWeekDay as formatShortDayOfWeek,
 } from "src/helpers/formatters";
 import { getRandomTimeList } from "src/helpers/slots";
 import NavButton from "./NavButton";
+import SlotButton from "./SlotButton";
 
 const daysCount = 7;
 const slotsCount = 10;
@@ -20,11 +20,6 @@ const Calendar = () => {
 
 	// [[time, ...]], [[time, ...]], etc.
 	const daySlots = range(daysCount).map(() => getRandomTimeList(slotsCount));
-
-	const formatSlotTime = (dayIndex: number, slotIndex: number) => {
-		const time = daySlots[dayIndex]?.[slotIndex];
-		return time ? formatHourMinute(time) : "-";
-	};
 
 	return (
 		<div className="flex items-start gap-8">
@@ -51,9 +46,7 @@ const Calendar = () => {
 						<tr key={`${firstDay.getTime()}:${slotIndex}`}>
 							{days.map((day, dayIndex) => (
 								<td key={day.getTime()} className="p-1 text-center">
-									<div className="w-24 rounded-md bg-slate-100 py-2 text-center text-gray-700">
-										{formatSlotTime(dayIndex, slotIndex)}
-									</div>
+									<SlotButton time={daySlots[dayIndex]?.[slotIndex]} />
 								</td>
 							))}
 						</tr>
