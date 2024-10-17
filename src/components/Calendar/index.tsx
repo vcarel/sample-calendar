@@ -7,6 +7,7 @@ import {
 	formatShortWeekDay as formatShortDayOfWeek,
 } from "src/helpers/formatters";
 import { getRandomTimeList } from "src/helpers/slots";
+import NavButton from "./NavButton";
 
 const daysCount = 7;
 const slotsCount = 10;
@@ -26,7 +27,14 @@ const Calendar = () => {
 	};
 
 	return (
-		<div>
+		<div className="flex items-start gap-8">
+			<NavButton
+				disabled={firstDay.getTime() <= startOfToday().getTime()}
+				className="mt-3"
+				onClick={() => _setFirstDay(addDays(firstDay, -daysCount))}
+				direction="prev"
+			/>
+
 			<table className="text-sm">
 				<thead>
 					<tr>
@@ -52,6 +60,12 @@ const Calendar = () => {
 					))}
 				</tbody>
 			</table>
+
+			<NavButton
+				className="mt-3"
+				onClick={() => _setFirstDay(addDays(firstDay, daysCount))}
+				direction="next"
+			/>
 		</div>
 	);
 };
