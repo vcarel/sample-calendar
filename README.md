@@ -2,6 +2,8 @@
 
 This project is a sample calendar app.
 
+To view the app, visit [https://sample-calendar.vercel.app/](https://sample-calendar.vercel.app/).
+
 ## Prerequisites
 
 Before you begin, ensure you have the following installed:
