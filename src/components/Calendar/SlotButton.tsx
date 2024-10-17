@@ -9,6 +9,7 @@ type Props = {
 
 const SlotButton: FC<Props> = ({ className, time }) => {
 	const [clickCount, setClickCount] = useState(0);
+	const disabled = !time;
 
 	const onClick = () => {
 		setClickCount((prev) => (prev + 1) % 3);
@@ -18,11 +19,13 @@ const SlotButton: FC<Props> = ({ className, time }) => {
 		<button
 			className={clsx(
 				className,
-				"w-24 rounded-md bg-gray-100 py-2 text-center text-gray-700 ",
-				clickCount === 0 && "bg-gray-100 hover:bg-gray-700 hover:text-white",
-				clickCount === 1 && "bg-green-700 text-white hover:bg-green-700",
-				clickCount === 2 && "bg-blue-700 text-white hover:bg-blue-700",
+				"w-24 rounded-md py-2 text-center text-gray-700 ",
+				!disabled && clickCount === 0 && "bg-gray-100 hover:bg-gray-700 hover:text-white",
+				!disabled && clickCount === 1 && "bg-green-700 text-white hover:bg-green-700",
+				!disabled && clickCount === 2 && "bg-blue-700 text-white hover:bg-blue-700",
+				disabled && "cursor-not-allowed bg-gray-100 opacity-50",
 			)}
+			disabled={disabled}
 			onClick={onClick}
 			type="button"
 		>
