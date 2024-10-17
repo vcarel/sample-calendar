@@ -1,0 +1,30 @@
+{
+	"$schema": "https://biomejs.dev/schemas/1.9.2/schema.json",
+	"files": {
+		"ignore": ["dist", "node_modules"]
+	},
+	"organizeImports": {
+		"enabled": true
+	},
+	"formatter": {
+		"lineWidth": 100
+	},
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"correctness": {
+				"noUnusedVariables": "warn",
+				"noUnusedImports": "warn",
+				"noUnknownFunction": "off"
+			},
+			"suspicious": {
+				"noArrayIndexKey": "off",
+				"noExplicitAny": "off"
+			},
+			"nursery": {
+				"useSortedClasses": { "level": "warn", "fix": "safe", "options": {} }
+			}
+		}
+	}
+}
