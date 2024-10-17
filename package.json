@@ -1,0 +1,30 @@
+{
+	"name": "sample-calendar",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "tsc -b && vite build",
+		"check": "biome check --error-on-warnings",
+		"check-types": "tsc --noEmit --incremental && echo -e \"Typescript validation \\033[0;32mpassed\\033[0m\"",
+		"preview": "vite preview"
+	},
+	"dependencies": {
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "^1.9.3",
+		"@types/bun": "^1.1.11",
+		"@types/react": "^18.3.10",
+		"@types/react-dom": "^18.3.0",
+		"@vitejs/plugin-react": "^4.3.2",
+		"autoprefixer": "^10.4.20",
+		"bun-types": "^1.1.30",
+		"globals": "^15.9.0",
+		"tailwindcss": "^3.4.14",
+		"typescript": "^5.5.3",
+		"vite": "^5.4.8"
+	}
+}

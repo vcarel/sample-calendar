@@ -1,0 +1,24 @@
+@import "../fonts/inter";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply text-slate-900 bg-white;
+  }
+
+  body {
+    @apply text-sm;
+  }
+
+  button {
+    @apply cursor-pointer;
+  }
+
+  td,
+  th {
+    @apply text-left p-0;
+  }
+}
